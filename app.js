@@ -64,6 +64,8 @@ app.get('/nok', (req, res) => {
 })
 //Donde envía el post el tpv confirmando de la compra
 app.post('/ok2', (req, res) => {
+  guardarErrorLog(JSON.stringify(req.body));
+  guardarErrorLog(req.body.num_operacion);
   if(req.body.Importe && req.body.BIN8 && req.body.FinalPAN && req.body.Tipo_tarjeta && req.body.Tipo_operacion){
     sendPostData(req.body.num_operacion);
 	  confirmarCompraLog(true, req.body.Importe, req.body.Num_operacion, req.body.BIN8 ,req.body.FinalPAN ,req.body.Tipo_tarjeta ,req.body.Tipo_operacion);
@@ -76,7 +78,7 @@ app.post('/ok2', (req, res) => {
 const sendPostData = (num_operacion) => {
   
   const data = {
-    num_operacion:num_operacion,
+    num_operacion : num_operacion,
     estado: true
   };
   const url = 'https://api.reservatupista.com/usuario/actualizar_operacion';
@@ -87,7 +89,7 @@ const sendPostData = (num_operacion) => {
       'Content-Type' : 'application/json'
     },
     json: true,
-    body: data
+    body: JSON.stringify(data)
   };
   try {
     request(options,(error, response, data) => {

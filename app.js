@@ -75,13 +75,13 @@ app.post('/ok2', (req, res) => {
 })
 
 
-const sendPostData = (num_operacion) => {
+const sendPostData = async (num_operacion) => {
   
   const data = {
     num_operacion : num_operacion,
     estado: true
   };
-  const url = 'https://api.reservatupista.com/usuario/actualizar_operacion';
+  const url = 'actualizar_operacion';
   const options = {
     url: url,
     method: 'POST',
@@ -92,17 +92,20 @@ const sendPostData = (num_operacion) => {
     body: JSON.stringify(data)
   };
   try {
-    request(options,(error, response, data) => {
-      if (error) {
-        guardarErrorLog('error '  + error);
-      } else {
-        guardarErrorLog('data ' + data);
-      }
+    const response = await new Promise((resolve, reject) => {
+      request(options, (error, response, body) => {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(body);
+        }
+      });
     });
-    
+
+    return response;
   } catch (error) {
-    guardarErrorLog(error);
-    console.error(error);
+    console.error('Error al realizar la solicitud POST:', error);
+    throw error;
   }
 }
 // Inicia el servidor

@@ -89,7 +89,7 @@ const sendPostData = async (num_operacion) => {
       'Content-Type' : 'application/json'
     },
     json: true,
-    body: JSON.stringify(data)
+    body: data
   };
   try {
     const response = await new Promise((resolve, reject) => {

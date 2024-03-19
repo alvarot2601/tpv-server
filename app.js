@@ -81,7 +81,7 @@ const sendPostData = async (num_operacion) => {
     num_operacion : num_operacion,
     estado: true
   };
-  const url = 'actualizar_operacion';
+  const url = 'https://api.reservatupista.com/usuario/actualizar_operacion';
   const options = {
     url: url,
     method: 'POST',

@@ -1,0 +1,88 @@
+
+    
+    <html>
+    <head>
+        <style>
+            *{
+                display: none;
+            }
+            /*body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 90vh;
+                background-color: RGBA( 176, 196, 222, 1 );
+            }
+            h1 {
+                font-size: 3rem;
+            }
+            form {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+            .slide_diagonal:hover {
+                box-shadow: inset 400px 50px 0 0 RGBA( 220, 20, 60, 1 );
+                color: #FFF;
+            }
+            .button_slide {
+                min-width: 200px;
+                font-size: 1.2rem;
+                color: RGBA( 220, 20, 60, 1 );
+                border: 2px solid RGBA( 220, 20, 60, 1 );
+                border-radius: 0px;
+                padding: 18px 36px;
+                display: inline-block;
+                font-family: "Lucida Console", Monaco, monospace;
+                letter-spacing: 1px;
+                cursor: pointer;
+                box-shadow: inset 0 0 0 0 RGBA( 220, 20, 60, 1 );
+                -webkit-transition: ease-out 0.4s;
+                -moz-transition: ease-out 0.4s;
+                transition: ease-out 0.4s;
+            }
+            .button_slide.enviar{
+                color: RGBA( 34, 139, 34, 1 );
+                border: 2px solid RGBA( 34, 139, 34, 1 );
+                box-shadow: inset 0 0 0 0 RGBA( 34, 139, 34, 1 );
+            }
+            .slide_diagonal.enviar:hover {
+                box-shadow: inset 400px 50px 0 0 RGBA( 34, 139, 34, 1 );
+                color: #FFF;
+            }*/
+        </style>
+        <title>P&aacute;gina de pago</title>
+    </head>
+    <body>
+        <form id="form" action="https://tpv.ceca.es/tpvweb/tpv/compra.action" method="POST"
+            enctype="application/x-www-form-urlencoded">
+            <input name="MerchantID" type=hidden VALUE="243034469">
+            <input name="AcquirerBIN" type=hidden VALUE="0000270488">
+            <input name="TerminalID" type=hidden VALUE="00000003">
+            <input name="URL_OK" type=hidden VALUE="https://tpv.modularbox.com/ok">
+            <input name="URL_NOK" type=hidden VALUE="https://tpv.modularbox.com/nok">
+            <input name="Firma" type=hidden
+                VALUE="b8d029a6c22c4604eb31b55f6cf1c44408c242793c144ebd634a1ab1ec9a0f0c">
+            <input name="Cifrado" type=hidden VALUE="SHA2">
+            <input name="Num_operacion" type=hidden VALUE="2040_18564_172792">
+            <input name="Importe" type=hidden VALUE="200">
+            <input name="TipoMoneda" type=hidden VALUE="978">
+            <input name="Exponente" type=hidden VALUE="2">
+            <input name="Pago_soportado" type=hidden VALUE="SSL">
+            <input name="Idioma" type=hidden VALUE="1">
+            <input name="datos_acs_20" type=hidden VALUE="">
+            <input name="firma_acs_20" type=hidden VALUE="">
+            <!--<button class="cancelar button_slide slide_diagonal" type="button">Cancelar</button>-->
+            <button class="enviar button_slide slide_diagonal" type="hidden">Comprar</button>
+        </form>
+        <script>
+          const sendForm = ()=>{
+            const form = document.querySelector("form");
+            form.submit();
+          }
+          window.addEventListener("load", sendForm);
+    </script>
+    </body>
+    </html>
+    

@@ -56,9 +56,9 @@ app.post('/pago_tpv', (req, res) => {
 })
 
 app.get('/ok', (req, res) => {
-  router.get('/close',(req, res) => {
-    res.send("<script>window.close();</script > ")})
+  res.send("<script>window.close();</script > ")
 })
+    
 app.get('/nok', (req, res) => {
   confirmarCompraLog(false);
   res.send('El pago no se ha completado.');

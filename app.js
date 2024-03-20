@@ -56,11 +56,12 @@ app.post('/pago_tpv', (req, res) => {
 })
 
 app.get('/ok', (req, res) => {
-  res.send('OOOOOOOOOOKEY');
+  router.get('/close',(req, res) => {
+    res.send("<script>window.close();</script > ")})
 })
 app.get('/nok', (req, res) => {
   confirmarCompraLog(false);
-  res.send('nooooooooooo OOOOOOOOOOKEY');
+  res.send('El pago no se ha completado.');
 })
 //Donde envía el post el tpv confirmando de la compra
 app.post('/ok2', (req, res) => {
@@ -89,7 +90,7 @@ const sendPostData = async (num_operacion) => {
       'Content-Type' : 'application/json'
     },
     json: true,
-    body: data
+    body: data//SI SE ENVIA CON JSON.stringify no lo detecta el server
   };
   try {
     const response = await new Promise((resolve, reject) => {

@@ -92,6 +92,7 @@ const guardarVersion = (version)=> {
 	});
 }
 
+
 const guardarErrorLog = (message)=>{
 	let errorMessage = '\n--------------------------------------------- ' + date.getDay() + '/' + date.getMonth() + '/' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + ' ---------------------------------------------';
     errorMessage += `\n Error: ${message}\n\n\n `;

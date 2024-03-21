@@ -67,12 +67,9 @@ app.get('/nok', (req, res) => {
 })
 //Donde envía el post el tpv confirmando de la compra
 app.post('/ok2', (req, res) => {
-  guardarErrorLog(JSON.stringify(req.body));
-  guardarErrorLog(req.body.Num_operacion);
   if(req.body.Importe && req.body.BIN8 && req.body.FinalPAN && req.body.Tipo_tarjeta && req.body.Tipo_operacion){
     sendPostData(req.body.Num_operacion);
 	  confirmarCompraLog(true, req.body.Importe, req.body.Num_operacion, req.body.BIN8 ,req.body.FinalPAN ,req.body.Tipo_tarjeta ,req.body.Tipo_operacion);
-    
   }else{  
     confirmarCompraLog(false);
   }

@@ -68,7 +68,7 @@ const confirmarCompraLog = (isOk, importe='', num_operacion='', bin8='', finalPa
 			console.log('Saved');
 		});
 
-		fs.writeFile('./logs/logs.txt', paymentMessage, function(err){
+		fs.appendFile('./logs/logs.txt', paymentMessage, function(err){
 			if(err){
 				guardarErrorLog(err.message || err);
 				//throw err;
@@ -91,7 +91,7 @@ const confirmarCompraLog = (isOk, importe='', num_operacion='', bin8='', finalPa
 
 const guardarVersion = (version)=> {
 	const versionMessage = `\n____________________________________________________ SERVIDOR VERSION: ${version}____________________________________________________\n`;
-	fs.appendFile('./logs/logs.txt', versionMessage, function(err){
+	fs.writeFile('./logs/logs.txt', versionMessage, function(err){
 		if(err){
 			guardarErrorLog(err.message || err);
 			throw err;

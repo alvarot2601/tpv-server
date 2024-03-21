@@ -60,7 +60,15 @@ const confirmarCompraLog = (isOk, importe='', num_operacion='', bin8='', finalPa
 		}
    
 	
-		fs.appendFile('./logs/logs.txt', paymentMessage, function(err){
+		fs.appendFile('./logs/allLogs.txt', paymentMessage, function(err){
+			if(err){
+				guardarErrorLog(err.message || err);
+				//throw err;
+			}
+			console.log('Saved');
+		});
+
+		fs.writeFile('./logs/logs.txt', paymentMessage, function(err){
 			if(err){
 				guardarErrorLog(err.message || err);
 				//throw err;

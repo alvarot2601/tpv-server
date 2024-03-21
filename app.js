@@ -57,12 +57,13 @@ app.post('/pago_tpv', (req, res) => {
 
 app.get('/ok', (req, res) => {
   //res.send("<script>window.close();</script > ")
-  res.redirect("https://app.reservatupista.com/");
+  res.redirect("https://app.reservatupista.com/monederoVirtual");
 })
     
 app.get('/nok', (req, res) => {
   confirmarCompraLog(false);
   res.send('El pago no se ha completado.');
+  res.redirect("https://app.reservatupista.com/monederoVirtual");
 })
 //Donde envía el post el tpv confirmando de la compra
 app.post('/ok2', (req, res) => {

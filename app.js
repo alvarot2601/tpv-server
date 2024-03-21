@@ -62,7 +62,7 @@ app.get('/ok', (req, res) => {
     
 app.get('/nok', (req, res) => {
   confirmarCompraLog(false);
-  res.send('El pago no se ha completado.');
+  //res.send('El pago no se ha completado.');
   res.redirect("https://app.reservatupista.com/monederoVirtual");
 })
 //Donde envía el post el tpv confirmando de la compra

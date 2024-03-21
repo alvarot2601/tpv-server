@@ -70,7 +70,7 @@ app.post('/ok2', (req, res) => {
   if(req.body.Importe && req.body.BIN8 && req.body.FinalPAN && req.body.Tipo_tarjeta && req.body.Tipo_operacion){
     sendPostData(req.body.Num_operacion);
 	  confirmarCompraLog(true, req.body.Importe, req.body.Num_operacion, req.body.BIN8 ,req.body.FinalPAN ,req.body.Tipo_tarjeta ,req.body.Tipo_operacion);
-    res.redirect("https://api.reservatupista.com/")
+    res.redirect("https://app.reservatupista.com/")
   }else{
     confirmarCompraLog(false);
   }

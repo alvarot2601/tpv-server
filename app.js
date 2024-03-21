@@ -71,7 +71,7 @@ app.post('/ok2', (req, res) => {
     sendPostData(req.body.Num_operacion);
 	  confirmarCompraLog(true, req.body.Importe, req.body.Num_operacion, req.body.BIN8 ,req.body.FinalPAN ,req.body.Tipo_tarjeta ,req.body.Tipo_operacion);
     res.redirect("https://app.reservatupista.com/");
-  }else{
+  }else{  
     confirmarCompraLog(false);
   }
 })
